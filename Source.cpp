@@ -2,8 +2,7 @@
 using namespace std;
 
 int main() {
-	int purchase_amount = 0, loyalty_points = 0, points = 0, redeem_points = 0;
-	int discount = 0;
+	int purchase_amount = 0, loyalty_points = 0, points = 0, redeem_points = 0, discount = 0;
 	string redeem, user_choice;
 
 	cout << "Enter total amount of purchase: ";
@@ -20,11 +19,18 @@ int main() {
 	if (redeem == "yes") {
 		cout << "How many points do you want to redeem: ";
 		cin >> redeem_points;
+		discount = redeem_points * 0.02;
+		cout << "You have earned a discount of " << discount << " $ on your next purchase. Enjoy!"; 
 
-		if (redeem_points >= loyalty_points)
-			discount = redeem_points * 0.02;
-
-			cout << "You have earned a discount of " << discount << " $ on your next purchase. Enjoy!";
+		cout << "Do you want to continue? (yes/no): ";
+		cin >> user_choice;
+		if (user_choice == "yes") {
+			cout << "Enter total amount of purchase: ";
+			cin >> purchase_amount;
+		}
+		else if (redeem == "no") {
+		system("pause");
+		}
 		}
 
 	else if (redeem == "no") {
@@ -39,4 +45,6 @@ int main() {
 			}
 	}
 }
+
+
 
